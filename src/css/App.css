@@ -31,6 +31,10 @@
 	border-bottom: var(--board-border);
 }
 
+.board .board__row .board__cell {
+	cursor: pointer;
+}
+
 .board .board__row .board__cell:not(:last-child) {
 	border-right: var(--board-border);
 }

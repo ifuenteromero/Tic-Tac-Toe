@@ -1,7 +1,12 @@
-const Board = () => {
+const Board = ({ updateBoard }) => {
 	const n = 5;
 	const row = Array(n).fill(null);
 	const matrix = Array(n).fill(row);
+
+	const handleClick = () => {
+		updateBoard();
+	};
+
 	return (
 		<table className="board">
 			<tbody>
@@ -15,6 +20,7 @@ const Board = () => {
 									<td
 										key={colIndex}
 										className="board__cell"
+										onClick={handleClick}
 									>{`${rowIndex} - ${colIndex}`}</td>
 								);
 							})}
