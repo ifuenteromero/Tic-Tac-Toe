@@ -3,6 +3,8 @@
 	--gray-400: #999;
 	--gray-700: #333;
 	--color-secondary: #14bdac;
+	--board-border-color: #0da192;
+	--board-border: 4px solid var(--board-border-color);
 }
 
 .page {
@@ -21,6 +23,16 @@
 .board {
 	height: 30rem;
 	background-color: var(--color-secondary);
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.board .board__row:not(:last-child) {
+	border-bottom: var(--board-border);
+}
+
+.board .board__row .board__cell:not(:last-child) {
+	border-right: var(--board-border);
 }
 
 .reset-button {

@@ -1,4 +1,5 @@
 import "../css/App.css";
+import Board from "./Board";
 
 const App = () => {
 	return (
@@ -9,7 +10,7 @@ const App = () => {
 			<main>
 				<section className="turn">Turn X</section>
 				<section className="game">
-					<div className="board"></div>
+					<Board />
 					<button className="reset-button">Restar game</button>
 				</section>
 			</main>
