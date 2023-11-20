@@ -10,8 +10,6 @@
 .page {
 	height: 100%;
 	margin: 0 auto;
-	max-width: 65rem;
-	width: 100%;
 	text-align: center;
 	color: var(--gray-700);
 	padding: 2rem;
@@ -21,10 +19,9 @@
 }
 
 .board {
-	height: 30rem;
 	background-color: var(--color-secondary);
-	width: 100%;
 	border-collapse: collapse;
+	margin: 0 auto;
 }
 
 .board .board__row:not(:last-child) {
@@ -33,6 +30,8 @@
 
 .board .board__row .board__cell {
 	cursor: pointer;
+	width: 10rem;
+	height: 10rem;
 }
 
 .board .board__row .board__cell:not(:last-child) {
@@ -40,7 +39,6 @@
 }
 
 .reset-button {
-	width: 100%;
 	padding: 1rem 2rem;
 	color: var(--color-secondary);
 	font-weight: 700;

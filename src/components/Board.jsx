@@ -1,10 +1,6 @@
-const Board = ({ updateBoard }) => {
-	const n = 5;
-	const row = Array(n).fill(null);
-	const matrix = Array(n).fill(row);
-
-	const handleClick = () => {
-		updateBoard();
+const Board = ({ updateBoard, currentTurn, matrix }) => {
+	const handleClick = (rowIndex, colIndex, currentTurn) => {
+		updateBoard(rowIndex, colIndex, currentTurn);
 	};
 
 	return (
@@ -20,8 +16,16 @@ const Board = ({ updateBoard }) => {
 									<td
 										key={colIndex}
 										className="board__cell"
-										onClick={handleClick}
-									>{`${rowIndex} - ${colIndex}`}</td>
+										onClick={() =>
+											handleClick(
+												rowArrayIndex,
+												colArrayIndex,
+												currentTurn
+											)
+										}
+									>
+										{col}
+									</td>
 								);
 							})}
 						</tr>

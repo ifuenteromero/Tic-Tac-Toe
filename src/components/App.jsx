@@ -6,9 +6,20 @@ import { INITIAL_TURN, toggleTurn } from "../utils/constants";
 const App = () => {
 	const [turn, setTurn] = useState(INITIAL_TURN);
 
-	const updateBoard = () => {
-		const newTurn = toggleTurn(turn);
+	const n = 5;
+	const row = Array(n).fill(null);
+	const INITIAL_MATRIX = Array(n).fill(row);
+	const [matrix, setMatrix] = useState(INITIAL_MATRIX);
+
+	const updateBoard = (rowIndex, colIndex, currentTurn) => {
+		const newTurn = toggleTurn(currentTurn);
+		const newMatrix = [...matrix];
+		const row = newMatrix[rowIndex];
+		const newRow = [...row];
+		newRow[colIndex] = currentTurn;
+		newMatrix[rowIndex] = newRow;
 		setTurn(newTurn);
+		setMatrix(newMatrix);
 	};
 
 	return (
@@ -19,8 +30,17 @@ const App = () => {
 			<main>
 				<section className="turn">{turn} Turn</section>
 				<section className="game">
-					<Board updateBoard={updateBoard} />
-					<button className="reset-button">Restar game</button>
+					<Board
+						updateBoard={updateBoard}
+						currentTurn={turn}
+						matrix={matrix}
+					/>
+					<button
+						className="reset-button"
+						style={{ width: `${n * 10}rem` }}
+					>
+						Restar game
+					</button>
 				</section>
 			</main>
 		</div>
