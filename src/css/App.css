@@ -29,9 +29,16 @@
 }
 
 .board .board__row .board__cell {
-	cursor: pointer;
 	width: 10rem;
 	height: 10rem;
+}
+
+.board__cell[data-filled="true"] {
+	cursor: not-allowed;
+}
+
+.board__cell[data-filled="false"] {
+	cursor: pointer;
 }
 
 .board .board__row .board__cell:not(:last-child) {
